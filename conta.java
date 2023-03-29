@@ -7,22 +7,25 @@ public abstract class conta implements InterfaceConta {
 
 
     public conta(cliente cliente){
-        this.agencia = agencia_Padrao;
-        this.numero = sequencial++;
+        agencia = agencia_Padrao;
+        numero = sequencial++;
         this.cliente = cliente;
     }
 
     
     public void Sacar(double valor_Saque) {
-        this.saldo -= valor_Saque;
+        saldo -= valor_Saque;
+        System.out.println("Saque realizado");
     }
     public void Depositar(double valor_deposito) {
-        this.saldo += valor_deposito;
+        saldo += valor_deposito;
+        System.out.println("Deposito realizado");
 
     }
     public void Transferir(double valor_transferencia, InterfaceConta conta_Destino) {
-        this.Sacar(valor_transferencia);
+        Sacar(valor_transferencia);
         conta_Destino.Depositar(valor_transferencia);
+        System.out.println("Transferencia realizada");
     }
 
 
@@ -40,10 +43,11 @@ public abstract class conta implements InterfaceConta {
    
 
     protected void ImprimirInformação(){
-        System.out.println(String.format("Titular: %s",this.cliente.getNome()));
-        System.out.println(String.format("Agencia: %d",this.agencia));  
-        System.out.println(String.format("Numero: %d",this.numero));
-        System.out.println(String.format("Saldo: %.2f",this.saldo));
+        System.out.println(String.format("Titular: %s",cliente.getNome()));
+        System.out.println(String.format("CPF: %s",cliente.getCPF()));
+        System.out.println(String.format("Agencia: %d",agencia));  
+        System.out.println(String.format("Numero: %d",numero));
+        System.out.println(String.format("Saldo: %.2f",saldo));
     }
    
 }
