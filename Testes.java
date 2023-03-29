@@ -3,9 +3,10 @@ public class Testes {
 
         cliente pedro = new cliente();
         pedro.setNome("Pedro");
-
+        cliente felix = new cliente();
+        felix.setNome("felix");
         InterfaceConta  conta_Corrente = new contaCorrente(pedro);
-        InterfaceConta conta_Poupanca = new contaPoupanca(pedro);
+        InterfaceConta conta_Poupanca = new contaPoupanca(felix);
 
 
 
